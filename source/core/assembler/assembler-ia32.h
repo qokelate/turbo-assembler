@@ -343,6 +343,22 @@ public:
 
   void jmp(Immediate imm);
 
+  void pushfd() {
+      Emit1(0x9C);
+  }
+
+  void popfd() {
+      Emit1(0x9D);
+  }
+
+  void pushad() {
+      Emit1(0x60);
+  }
+
+  void popad() {
+      Emit1(0x61);
+  }
+
   void sub(Register dst, Immediate imm) {
     DCHECK_EQ(dst.size(), 32);
 
